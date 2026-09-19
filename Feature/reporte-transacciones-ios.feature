@@ -29,3 +29,17 @@ Feature: Reporte de transacciones desde la aplicación móvil iOS
     And el reporte debe estar disponible en el Back Office
     And el Back Office debe mostrar la información correspondiente a la transacción
     And el identificador de la transacción debe coincidir entre iOS, Backend y Back Office
+
+Scenario: No permitir reportar una transacción sin información obligatoria
+
+    Given que el usuario está autenticado en la aplicación iOS
+    And tiene una transacción disponible para reportar
+
+    When el usuario selecciona la opción "Reportar"
+    And deja uno o más campos obligatorios vacíos
+    And intenta enviar el reporte
+
+    Then la aplicación debe identificar los campos obligatorios faltantes
+    And debe mostrar mensajes de validación
+    And no debe enviar una solicitud válida al backend
+    And no debe crearse un reporte en el Back Office
