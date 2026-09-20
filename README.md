@@ -10,7 +10,7 @@ para validar una plataforma de movilidad integrada con:
 - Back Office
 - Sitio Web
 
-## Bloque 1 - Casos de Uso
+## Feature- Casos de Uso
 
 ### Casos incluidos
 
